@@ -7,7 +7,7 @@ import KawaiiHeader from '@components/KawaiiHeader/KawaiiHeader'
 import ProductList from '@components/ProductList/ProductList'
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch('https://platzi-avo.vercel.app/api/avo')
+  const response = await fetch('https://platzi-nextjs-fiore.vercel.app/api/avo')
   const { data: productList }: TAPIAvoResponse = await response.json()
 
   return {
@@ -22,11 +22,11 @@ const HomePage = ({ productList }: { productList: TProduct[] }) => {
     <Layout>
       <KawaiiHeader />
       <section>
-        <Link href='/yes-or-no'>
+        <Link href="/yes-or-no">
           <a>¿Deberia comer un avo hoy?</a>
         </Link>
-        <ProductList products={productList} />
       </section>
+      <ProductList products={productList} />
       <style jsx>{`
       section {
         text-align: center;
